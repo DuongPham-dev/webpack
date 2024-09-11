@@ -8,7 +8,23 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
   },
   module: {
-    rules: [{ test: /\.css$/, use: "css-loader" }],
+    rules: [
+      { test: /\.css$/, use: "css-loader" },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+            // plugins: [
+            //   "@babel/plugin-transform-arrow-functions",
+            //   "@babel/plugin-transform-block-scoping",
+            // ],
+          },
+        },
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({

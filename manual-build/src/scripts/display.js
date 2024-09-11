@@ -1,6 +1,6 @@
 // import "../styles/index.css";
 
-var showMessage = function (message) {
+const showMessage = (message) => {
   console.log([1, 2, 3].map((n) => `${message} - ${n}`));
 };
 
